@@ -89,7 +89,6 @@ func (u *udpconn) Read(data []byte) (n int, err error) {
 		return 0, fmt.Errorf("Invalid address type: %d", addrType)
 	}
 	addr.Port = int(binary.BigEndian.Uint16(data[cursor : cursor+2]))
-	fmt.Println("Target address: ", addr.String())
 	// 端口
 	cursor += 2
 	copy(data, data[cursor:n])
